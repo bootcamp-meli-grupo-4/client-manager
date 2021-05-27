@@ -2,7 +2,7 @@ package com.mercadolivre.clientmanager.model;
 
 import javax.validation.constraints.Null;
 
-public class Product {
+public class Product implements Entity{
 
     private Integer id;
     private String description;
