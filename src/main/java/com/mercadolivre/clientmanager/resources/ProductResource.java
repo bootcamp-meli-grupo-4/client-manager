@@ -24,10 +24,28 @@ public class ProductResource {
         return ResponseEntity.ok().body(all);
     }
 
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Product> getProduct(@PathVariable Integer id){
+        Product product = productService.find(id);
+        return ResponseEntity.ok().body(product);
+    }
+
     @PostMapping
-    public ResponseEntity<String> addProduct(@RequestBody Product product){
+    public ResponseEntity<Void> addProduct(@RequestBody Product product){
         Integer id = productService.save(product);
         URI uri = URI.create(String.format("/product/%d", id));
         return ResponseEntity.created(uri).build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Integer id){
+        productService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> updateProduct(@RequestBody Product product){
+        productService.update(product);
+        return ResponseEntity.ok().build();
     }
 }

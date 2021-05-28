@@ -1,33 +1,20 @@
 package com.mercadolivre.clientmanager.model;
 
+import com.mercadolivre.clientmanager.services.ClientService;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
 import java.util.List;
 
-public class Order {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Order implements Entity {
     private Integer id;
     private List<Product> products;
     private Double total;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-    public Double getTotal() {
-        return total;
-    }
-
-    public void setTotal(Double total) {
-        this.total = total;
-    }
+    private Client client;
+    private Date date;
 }

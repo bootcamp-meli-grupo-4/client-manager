@@ -22,4 +22,16 @@ public class ProductService {
     public Integer save(Product product) {
         return productRepository.save(product);
     }
+
+    public Product find(Integer id) {
+        return productRepository.find(id);
+    }
+
+    public void delete(Integer id){
+        productRepository.delete(id);
+    }
+
+    public void update(Product product){
+        productRepository.update(product);
+    }
 }
